@@ -1,0 +1,12 @@
+https://docs.python.org/3/library/string.html
+https://docs.python.org/3/library/pickle.html
+https://docs.python.org/3/library/shelve.html
+ipdb
+https://docs.python.org/3/library/abc.html
+datetime
+import inspect
+
+from datetime import timedelta
+from dateutil.relativedelta import relativedelta
+
+http://flask.pocoo.org/docs/0.12/quickstart/

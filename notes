@@ -10,3 +10,8 @@ from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 
 http://flask.pocoo.org/docs/0.12/quickstart/
+
+
+uuid
+cursor wtf?
+hashes

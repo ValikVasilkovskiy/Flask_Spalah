@@ -1,5 +1,6 @@
-from flask import request, Response, jsonify
+from flask import request, Response, jsonify, render_template, redirect, url_for
 from utils import id_generator, exec_query
+from flask.views import MethodView
 
 from pprint import pprint
 
@@ -26,8 +27,6 @@ def generate():
     print(qs_dict)
 
     # pprint(request.__dict__)
-    pprint('=='*50)
-    print(l('1231231231'))
 
     return response
 
@@ -58,23 +57,30 @@ def customers():
         item[0]: [value for value in item]
         for item in res
     }
-    # response = Response(mimetype='application/json')
-    # response.data = json.dumps(res_dict)
-    # return response
-    import json
-    json_obj = json.dumps(res_dict)
-    # json_obj = '{"1": null, "2": [1, 2], "3": -5.7}'
-    python_dict = json.loads(json_obj)
-    print(python_dict)
-    print(type(python_dict))
-    return jsonify(res_dict)
+    return str(res_dict)
 
 
 
 
 
+class RenderExample(MethodView):
 
+    def get(self):
+        context = {
+            "users": ['Dima', 'Alex', "Sergey"],
+            "form_data": request.args.get("firstname", "") + request.args.get("lastname", "")
+        }
 
+        return render_template(
+            'render-example.html',
+            context=context
+        )
+
+    def post(self):
+        return render_template(
+            'render-example.html',
+            context={"request_data": str(request.form)}
+        )
 
 
 

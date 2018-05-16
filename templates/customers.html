@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang = "en">
+   <head></head>
+   <body>
+        <h2 align="center">
+            CUSTOMERS
+        </h2>
+        <hr/>
+      <table border="1" width="45%" align="center">
+         <thead>
+            <tr align="center" valign="top">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Company</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>PostalCode</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Email</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for customer in customers %}
+               <tr>
+                   <td>{{ customer[1] }}</td>
+                   <td>{{ customer[2] }}</td>
+                   <td>{{ customer[3] }}</td>
+                   <td>{{ customer[4] }}</td>
+                   <td>{{ customer[5] }}</td>
+                   <td>{{ customer[6] }}</td>
+                   <td>{{ customer[7] }}</td>
+                   <td>{{ customer[8] }}</td>
+                   <td>{{ customer[9] }}</td>
+                   <td>{{ customer[10] }}</td>
+                   <td>{{ customer[11] }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>

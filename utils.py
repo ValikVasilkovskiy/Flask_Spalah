@@ -3,6 +3,9 @@ import string
 import random
 import sqlite3
 
+
+
+
 from configs import Config
 
 DB_NAME = 'chinook.db'
@@ -19,3 +22,5 @@ def exec_query(query):
 
 def id_generator(size=10, chars=string.ascii_letters):
     return ''.join(random.choice(chars) for _ in range(size))
+
+

@@ -2,11 +2,7 @@ from flask import request, Response, jsonify, render_template, redirect, url_for
 from utils import id_generator, exec_query
 from flask.views import MethodView
 
-from pprint import pprint
 
-
-def hello_world():
-    return 'Hello, World!'
 
 
 def generate():
@@ -24,19 +20,13 @@ def generate():
     for i in qs.split('&'):
         key, value = i.split('=')
         qs_dict[key] = value
-    print(qs_dict)
-
-    # pprint(request.__dict__)
-
     return response
-
 
 def generate_2(pass_len):
     # '/gen2/<int:pass_len>'
     print(pass_len)
     print(type(pass_len))
     return id_generator(pass_len)
-
 
 def customers():
     # /customers?state=null
@@ -57,9 +47,11 @@ def customers():
         item[0]: [value for value in item]
         for item in res
     }
-    return str(res_dict)
+    return jsonify(res_dict)
 
-
+def customers_to_table():
+    cust = exec_query('SELECT * FROM customers;')
+    return render_template('customers.html', customers = cust)
 
 
 
@@ -81,7 +73,6 @@ class RenderExample(MethodView):
             'render-example.html',
             context={"request_data": str(request.form)}
         )
-
 
 
 

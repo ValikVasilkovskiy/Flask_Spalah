@@ -1,7 +1,8 @@
 import os
 
-base_dir = os.path.abspath(os.path.dirname(__file__))
 
+base_dir = os.path.abspath(os.path.dirname(__file__))
+DB_NAME = 'chinook.db'
 
 class Config:
     BASE_DIR = base_dir
@@ -14,3 +15,6 @@ class Config:
 class DevConfig(Config):
     DEBUG = True
     # DEBUG = False
+
+
+

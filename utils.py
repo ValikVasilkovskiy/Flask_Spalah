@@ -6,6 +6,7 @@ import sqlite3
 
 
 
+
 from configs import Config
 
 DB_NAME = 'chinook.db'

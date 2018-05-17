@@ -1,8 +1,10 @@
 import os
-
+from sqlalchemy import create_engine
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 DB_NAME = 'chinook.db'
+SQL_ENGINE = create_engine('sqlite:///{}\{}'.format(base_dir, DB_NAME), echo=False)
+
 
 class Config:
     BASE_DIR = base_dir
